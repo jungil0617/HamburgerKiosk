@@ -9,7 +9,7 @@ public class Input {
     private Input() {
     }
 
-    private static Scanner getInstance() {
+    public static Scanner getInstance() {
         if (SCANNER == null) {
             SCANNER = new Scanner(System.in);
         }
