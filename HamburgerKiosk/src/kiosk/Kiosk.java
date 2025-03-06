@@ -4,6 +4,7 @@ import admin.AdminService;
 import customer.CustomerService;
 import file.LoadFile;
 import io.input.Input;
+import io.input.InputMessage;
 
 import static kiosk.Option.getOption;
 
@@ -14,6 +15,7 @@ public class Kiosk {
 
     public void start() {
         while (true) {
+            System.out.print(InputMessage.ROOT.getMessage());
             int optionNum = Integer.parseInt(Input.nextLine());
             selectOption(optionNum);
         }
