@@ -8,7 +8,7 @@ import java.util.List;
 public class AdminService {
     private final List<Admin> admins = new ArrayList<>();
 
-    private void createAdmin() {
+    public void createAdmin() {
         System.out.print("관리자의 이름과 보유 금액을 입력하세요 (예: 관리자1,100000): ");
         String[] adminInput = Input.nextLine().split(",");
         if (adminInput.length != 2) {
@@ -21,7 +21,7 @@ public class AdminService {
         System.out.println("관리자 생성 완료: " + adminName);
     }
 
-    private void loginAdmin() {
+    public void loginAdmin() {
         System.out.print("관리자의 이름을 입력하세요: ");
         String adminLogin = Input.nextLine();
         if (admins.stream().anyMatch(admin -> admin.getName().equals(adminLogin))) {
