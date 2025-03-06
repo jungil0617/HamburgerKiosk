@@ -1,6 +1,7 @@
 package customer;
 
 import io.input.Input;
+import io.input.InputMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ public class CustomerService {
     private final List<Customer> customers = new ArrayList<>();
 
     public void createCustomer() {
-        System.out.print("회원의 고유번호와 보유 금액을 입력하세요 (예: 1,30000): ");
+        System.out.print(InputMessage.CREATE_CUSTOMER.getMessage());
         String[] customerInput = Input.nextLine().split(",");
         if (customerInput.length != 2) {
             System.out.println("[ERROR] 올바른 형식으로 입력하세요.");
@@ -22,7 +23,7 @@ public class CustomerService {
     }
 
     public void loginCustomer() {
-        System.out.print("회원의 고유번호를 입력하세요: ");
+        System.out.print(InputMessage.LOGIN_CUSTOMER.getMessage());
         int customerLoginId = Integer.parseInt(Input.nextLine());
         if (customers.stream().anyMatch(customer -> customer.getCustomerId() == customerLoginId)) {
             System.out.println("회원 로그인 완료: " + customerLoginId);
