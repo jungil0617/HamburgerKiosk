@@ -1,4 +1,4 @@
-package main.product;
+package main.menu;
 
 public class Product {
 
@@ -6,9 +6,9 @@ public class Product {
     private final int price;
     private int quantity;
     private final String description;
-    private final String category;
+    private final Category category;
 
-    public Product(String name, int price, int quantity, String description, String category) {
+    public Product(String name, int price, int quantity, String description, Category category) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -32,7 +32,7 @@ public class Product {
         return description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -42,11 +42,12 @@ public class Product {
 
     @Override
     public String toString() {
-        String stringQuantity = "품절, ";
-        if (quantity > 0) {
-            stringQuantity = quantity + "개, ";
-        }
-        return "-" + name + ", " + price + "원, " + stringQuantity + description;
+        return String.format("-%s, %d원, %s, %s",
+                name,
+                price,
+                (quantity > 0 ? quantity + "개" : "품절"),
+                description
+        );
     }
 
 }
