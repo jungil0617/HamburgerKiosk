@@ -131,6 +131,35 @@ Y
 - 위의 예시 이외의 예외처리의 경우 고민하여 작성.
 
 ## 클래스 구조
+~~~
+📂 src
+└── 📂 main
+    ├── 📄 Main.java
+    ├── 📂 admin
+    │   ├── 📄 AdminService.java
+    │   └── 📂 validator
+    │       ├── 📄 AdminValidator.java
+    ├── 📂 customer
+    │   ├── 📄 CustomerService.java
+    │   └── 📂 validator
+    │       ├── 📄 CustomerValidator.java
+    ├── 📂 file
+    │   ├── 📄 ProductFileLoader.java
+    ├── 📂 io
+    │   ├── 📄 Input.java
+    ├── 📂 kiosk
+    │   ├── 📄 Kiosk.java
+    ├── 📂 menu
+    │   ├── 📄 ProductService.java
+    ├── 📂 order
+    │   ├── 📄 OrderService.java
+    │   ├── 📄 Payment.java
+    │   └── 📂 validator
+    │       ├── 📄 OrderValidator.java
+    ├── 📂 resources
+    │   └── 📄 products.md
+    └── 📂 util
+        ├── 📄 Separator.java
+~~~
 
 ## 예외 처리 방식
-
