@@ -2,16 +2,16 @@ package main.admin;
 
 public class Admin {
 
-    private final String name;
+    private final String adminName;
     private int money;
 
     public Admin(String name, int money) {
-        this.name = name;
+        this.adminName = name;
         this.money = money;
     }
 
-    public String getName() {
-        return name;
+    public String getAdminName() {
+        return adminName;
     }
 
     public int getMoney() {
@@ -19,6 +19,7 @@ public class Admin {
     }
 
     public void updateMoney(int money) {
-        this.money = money;
+        this.money += money;
     }
+
 }

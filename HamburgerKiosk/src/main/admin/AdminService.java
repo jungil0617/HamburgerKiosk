@@ -1,34 +1,57 @@
 package main.admin;
 
-import main.io.input.Input;
-import main.io.input.InputMessage;
-
+import main.admin.validator.AdminValidator;
+import main.io.Input;
 import java.util.ArrayList;
 import java.util.List;
 
+import static main.admin.AdminIndex.MONEY;
+import static main.admin.AdminIndex.NAME;
+import static main.admin.validator.AdminErrorMessage.ADMIN_NOT_FOUND;
+import static main.util.Separator.COMMA;
+
 public class AdminService {
+
     private final List<Admin> admins = new ArrayList<>();
+    private Admin loggedInAdmin;
+    Admin admin;
 
     public void createAdmin() {
-        System.out.print(InputMessage.CREATE_ADMIN.getMessage());
-        String[] adminInput = Input.nextLine().split(",");
-        if (adminInput.length != 2) {
-            System.out.println("[ERROR] 올바른 형식으로 입력하세요.");
-            return;
-        }
-        String adminName = adminInput[0].trim();
-        int adminMoney = Integer.parseInt(adminInput[1].trim());
-        admins.add(new Admin(adminName, adminMoney));
-        System.out.println("관리자 생성 완료: " + adminName);
+        System.out.println("관리자 이름과 잔액을 입력해주세요.");
+        String[] adminInput = Input.nextLine().split(COMMA.getSeparator());
+
+        AdminValidator.createValidator(adminInput, admins);
+
+        String name = adminInput[NAME.getIndex()];
+        int money = Integer.parseInt(adminInput[MONEY.getIndex()].trim());
+
+        admin = new Admin(name, money);
+        admins.add(admin);
     }
 
     public void loginAdmin() {
-        System.out.print(InputMessage.LOGIN_ADMIN.getMessage());
-        String adminLogin = Input.nextLine();
-        if (admins.stream().anyMatch(admin -> admin.getName().equals(adminLogin))) {
-            System.out.println("관리자 로그인 완료: " + adminLogin);
-        } else {
-            System.out.println("[ERROR] 존재하지 않는 관리자입니다.");
+        System.out.println("로그인할 관리자 이름을 입력해주세요.");
+        String name = Input.nextLine();
+
+        for(Admin admin : admins) {
+            if(admin.getAdminName().equals(name)) {
+                loggedInAdmin = admin;
+                return;
+            }
         }
+        throw new IllegalArgumentException(ADMIN_NOT_FOUND.getMessage());
     }
+
+    public void logoutAdmin() {
+        loggedInAdmin = null;
+    }
+
+    public Admin getLoggedInAdmin() {
+        return loggedInAdmin;
+    }
+
+    public boolean isAdminLoggedIn() {
+        return loggedInAdmin != null;
+    }
+
 }
