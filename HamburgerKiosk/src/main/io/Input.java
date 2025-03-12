@@ -1,15 +1,15 @@
-package main.io.input;
+package main.io;
 
 import java.util.Scanner;
 
 public class Input {
 
-    private static Scanner SCANNER;
+    private static volatile Scanner SCANNER;
 
     private Input() {
     }
 
-    public static Scanner getInstance() {
+    private static Scanner getInstance() {
         if (SCANNER == null) {
             SCANNER = new Scanner(System.in);
         }
@@ -21,7 +21,10 @@ public class Input {
     }
 
     public static void close() {
-        SCANNER.close();
+        if (SCANNER != null) {
+            SCANNER.close();
+            SCANNER = null;
+        }
     }
 
 }
