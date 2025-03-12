@@ -5,7 +5,7 @@ public class Customer {
     private final int customerId;
     private int money;
 
-    public Customer(int customerId , int money) {
+    public Customer(int customerId, int money) {
         this.customerId = customerId;
         this.money = money;
     }
@@ -19,6 +19,7 @@ public class Customer {
     }
 
     public void updateMoney(int money) {
-        this.money = money;
+        this.money -= money;
     }
+
 }
