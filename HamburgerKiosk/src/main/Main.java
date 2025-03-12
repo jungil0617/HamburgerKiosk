@@ -1,4 +1,6 @@
-import kiosk.Kiosk;
+package main;
+
+import main.kiosk.Kiosk;
 
 public class Main {
     public static void main(String[] args) {

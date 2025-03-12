@@ -1,4 +1,4 @@
-package io.input;
+package main.io.input;
 
 public enum InputMessage {
 

@@ -1,7 +1,7 @@
-package admin;
+package main.admin;
 
-import io.input.Input;
-import io.input.InputMessage;
+import main.io.input.Input;
+import main.io.input.InputMessage;
 
 import java.util.ArrayList;
 import java.util.List;

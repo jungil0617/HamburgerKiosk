@@ -1,4 +1,4 @@
-package kiosk;
+package main.kiosk;
 
 public enum Option {
     EXIT(0),

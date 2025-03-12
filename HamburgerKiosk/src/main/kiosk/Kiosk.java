@@ -1,12 +1,12 @@
-package kiosk;
+package main.kiosk;
 
-import admin.AdminService;
-import customer.CustomerService;
-import file.LoadFile;
-import io.input.Input;
-import io.input.InputMessage;
+import main.admin.AdminService;
+import main.customer.CustomerService;
+import main.file.LoadFile;
+import main.io.input.Input;
+import main.io.input.InputMessage;
 
-import static kiosk.Option.getOption;
+import static main.kiosk.Option.getOption;
 
 public class Kiosk {
     AdminService adminService = new AdminService();

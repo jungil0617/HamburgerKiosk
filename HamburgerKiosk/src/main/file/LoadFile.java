@@ -1,6 +1,6 @@
-package file;
+package main.file;
 
-import product.Product;
+import main.product.Product;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class LoadFile {
     }
 
     public File loadFile() {
-        final String FILEPATH = "src/main/resources/products.md";
+        final String FILEPATH = "src/main/main.resources/products.md";
         return new File(FILEPATH);
     }
 
