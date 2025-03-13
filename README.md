@@ -133,4 +133,18 @@ Y
 ## 클래스 구조
 
 ## 예외 처리 방식
+### User
+- INVALID_INPUT("[ERROR] 올바른 형식으로 입력해주세요. (예: 관리자1, 100000)"),
+- INVALID_MONEY("[ERROR] 보유 금액은 숫자로 입력해야 합니다."),
+- INVALID_NEGATIVE_NUMBER("[ERROR] 음수는 사용할 수 없습니다."),
+- DUPLICATE_ADMIN("[ERROR] 이미 존재하는 관리자 이름입니다."),
+- ADMIN_NOT_FOUND("[ERROR] 관리자 이름을 찾을 수 없습니다.");
 
+### File
+- EMPTY_FILE("[ERROR] 파일이 존재하지 않습니다."),
+- FAILED_READ_FILE("[ERROR] 파일 읽기에 실패했습니다.");
+
+### Order
+- INVALID_FORMAT("[ERROR] 올바르지 않은 형식으로 입력되었습니다."),
+- PRODUCT_NOT_FOUND("[ERROR] 존재하지 않는 상품입니다."),
+- INVALID_QUANTITY("[ERROR] 재고 수량을 초과하여 구매할 수 없습니다.");
