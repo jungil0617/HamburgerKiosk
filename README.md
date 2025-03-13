@@ -131,8 +131,39 @@ Y
 - 위의 예시 이외의 예외처리의 경우 고민하여 작성.
 
 ## 클래스 구조
+~~~
+📂 src
+└── 📂 main
+    ├── 📄 Main.java
+    ├── 📂 admin
+    │   ├── 📄 AdminService.java
+    │   └── 📂 validator
+    │       ├── 📄 AdminValidator.java
+    ├── 📂 customer
+    │   ├── 📄 CustomerService.java
+    │   └── 📂 validator
+    │       ├── 📄 CustomerValidator.java
+    ├── 📂 file
+    │   ├── 📄 ProductFileLoader.java
+    ├── 📂 io
+    │   ├── 📄 Input.java
+    ├── 📂 kiosk
+    │   ├── 📄 Kiosk.java
+    ├── 📂 menu
+    │   ├── 📄 ProductService.java
+    ├── 📂 order
+    │   ├── 📄 OrderService.java
+    │   ├── 📄 Payment.java
+    │   └── 📂 validator
+    │       ├── 📄 OrderValidator.java
+    ├── 📂 resources
+    │   └── 📄 products.md
+    └── 📂 util
+        ├── 📄 Separator.java
+~~~
 
 ## 예외 처리 방식
+<<<<<<< HEAD
 ### User
 - INVALID_INPUT("[ERROR] 올바른 형식으로 입력해주세요. (예: 관리자1, 100000)"),
 - INVALID_MONEY("[ERROR] 보유 금액은 숫자로 입력해야 합니다."),
@@ -148,3 +179,5 @@ Y
 - INVALID_FORMAT("[ERROR] 올바르지 않은 형식으로 입력되었습니다."),
 - PRODUCT_NOT_FOUND("[ERROR] 존재하지 않는 상품입니다."),
 - INVALID_QUANTITY("[ERROR] 재고 수량을 초과하여 구매할 수 없습니다.");
+=======
+>>>>>>> origin/main
