@@ -37,10 +37,6 @@ public class ProductService {
         }
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
     public Product getProductByName(String name) {
         return products.stream()
                 .filter(product -> product.getName().equals(name))

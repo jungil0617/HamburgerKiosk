@@ -58,10 +58,6 @@ public class OrderService {
         }
     }
 
-    public ProductService getProductService() {
-        return productService;
-    }
-
     private void resetOrders() {
         orders.clear();
     }
