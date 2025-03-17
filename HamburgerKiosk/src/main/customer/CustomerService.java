@@ -5,8 +5,6 @@ import main.io.Input;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.customer.CustomerIndex.ID;
-import static main.customer.CustomerIndex.MONEY;
 import static main.customer.validator.CustomerErrorMessage.CUSTOMER_NOT_FOUND;
 import static main.util.Separator.COMMA;
 
@@ -22,8 +20,8 @@ public class CustomerService {
 
         CustomerValidator.createValidator(customerInput, customers);
 
-        int id = Integer.parseInt(customerInput[ID.getIndex()]);
-        int money = Integer.parseInt(customerInput[MONEY.getIndex()].trim());
+        int id = Integer.parseInt(customerInput[0]);
+        int money = Integer.parseInt(customerInput[1].trim());
 
         customer = new Customer(id, money);
         customers.add(customer);

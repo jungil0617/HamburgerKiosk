@@ -5,8 +5,6 @@ import main.io.Input;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.admin.AdminIndex.MONEY;
-import static main.admin.AdminIndex.NAME;
 import static main.admin.validator.AdminErrorMessage.ADMIN_NOT_FOUND;
 import static main.util.Separator.COMMA;
 
@@ -22,8 +20,8 @@ public class AdminService {
 
         AdminValidator.createValidator(adminInput, admins);
 
-        String name = adminInput[NAME.getIndex()];
-        int money = Integer.parseInt(adminInput[MONEY.getIndex()].trim());
+        String name = adminInput[0];
+        int money = Integer.parseInt(adminInput[1].trim());
 
         admin = new Admin(name, money);
         admins.add(admin);
