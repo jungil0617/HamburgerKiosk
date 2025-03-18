@@ -8,7 +8,6 @@ public enum AdminErrorMessage {
     DUPLICATE_ADMIN("[ERROR] 이미 존재하는 관리자 이름입니다."),
     ADMIN_NOT_FOUND("[ERROR] 관리자 이름을 찾을 수 없습니다.");
 
-
     private final String message;
 
     AdminErrorMessage(String message) {
