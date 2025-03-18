@@ -7,18 +7,16 @@ import main.admin.AdminService;
 import main.io.Input;
 import main.io.InputMessage;
 import main.menu.ProductService;
-import main.order.OrderHistory;
 import main.order.OrderService;
 import main.order.Payment;
 
 public class Kiosk {
 
-    CustomerService customerService = new CustomerService();
-    AdminService adminService = new AdminService();
-    ProductService productService = new ProductService();
-    OrderService orderService = new OrderService(productService);
-    OrderHistory orderHistory = new OrderHistory();
-    Payment payment = new Payment();
+    private final CustomerService customerService = new CustomerService();
+    private final AdminService adminService = new AdminService();
+    private final ProductService productService = new ProductService();
+    private final OrderService orderService = new OrderService(productService);
+    private final Payment payment = new Payment();
 
     public void start() {
         productService.loadProducts();
@@ -52,7 +50,6 @@ public class Kiosk {
         intro(admin, customer);
         productService.showProducts();
         orderService.orderMenu();
-        orderHistory.addOrder(orderService.getOrders());
         payment.processPayment(orderService.getOrders(), admin, customer);
         handleNextStep(admin, customer);
     }

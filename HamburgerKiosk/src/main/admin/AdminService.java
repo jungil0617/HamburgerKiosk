@@ -12,7 +12,6 @@ public class AdminService {
 
     private final List<Admin> admins = new ArrayList<>();
     private Admin loggedInAdmin;
-    Admin admin;
 
     public void createAdmin() {
         System.out.println("관리자 이름과 잔액을 입력해주세요.");
@@ -23,7 +22,7 @@ public class AdminService {
         String name = adminInput[0];
         int money = Integer.parseInt(adminInput[1].trim());
 
-        admin = new Admin(name, money);
+        Admin admin = new Admin(name, money);
         admins.add(admin);
     }
 

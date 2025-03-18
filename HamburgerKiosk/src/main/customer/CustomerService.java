@@ -12,7 +12,6 @@ public class CustomerService {
 
     private final List<Customer> customers = new ArrayList<>();
     private Customer loggedInCustomer;
-    Customer customer;
 
     public void createCustomer() {
         System.out.println("회원 번호와 잔액을 입력해주세요.");
@@ -23,7 +22,7 @@ public class CustomerService {
         int id = Integer.parseInt(customerInput[0]);
         int money = Integer.parseInt(customerInput[1].trim());
 
-        customer = new Customer(id, money);
+        Customer customer = new Customer(id, money);
         customers.add(customer);
     }
 
