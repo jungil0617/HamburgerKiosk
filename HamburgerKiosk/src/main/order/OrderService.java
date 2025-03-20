@@ -74,4 +74,16 @@ public class OrderService {
         orders.clear();
     }
 
+    public static int calculateTotalQuantity(List<Order> orders) {
+        return orders.stream()
+                .mapToInt(Order::getQuantity)
+                .sum();
+    }
+
+    public static int calculateTotalPrice(List<Order> orders) {
+        return orders.stream()
+                .mapToInt(Order::getTotalPrice)
+                .sum();
+    }
+
 }
