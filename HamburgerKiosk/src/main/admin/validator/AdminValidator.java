@@ -7,6 +7,8 @@ import static main.admin.validator.AdminErrorMessage.*;
 
 public class AdminValidator {
 
+    private AdminValidator() {}
+
     public static void createValidator(String[] adminData, List<Admin> admins) {
         validateLength(adminData);
         validateNumberFormat(adminData);
@@ -34,7 +36,7 @@ public class AdminValidator {
         }
     }
 
-    public static void validateDuplicateAdmin(String[] adminData, List<Admin> admins) {
+    private static void validateDuplicateAdmin(String[] adminData, List<Admin> admins) {
         if (admins.stream().anyMatch(admin -> admin.getId().equals(adminData[0]))) {
             throw new IllegalArgumentException(DUPLICATE_ADMIN.getMessage());
         }
