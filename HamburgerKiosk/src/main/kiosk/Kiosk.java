@@ -51,6 +51,7 @@ public class Kiosk {
         productService.showProducts();
         orderService.orderMenu();
         payment.processPayment(orderService.getOrders(), admin, customer);
+        productService.updateProducts();
         handleNextStep(admin, customer);
     }
 

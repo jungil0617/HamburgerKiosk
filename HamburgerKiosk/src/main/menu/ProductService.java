@@ -11,15 +11,8 @@ public class ProductService {
 
     public void loadProducts() {
         List<String> productData = ProductFileLoader.load();
-        boolean isFirstLine = true;
 
         for(String line : productData) {
-            // 헤더는 생략.
-            if (isFirstLine) {
-                isFirstLine = false;
-                continue;
-            }
-
             String[] data = line.split(COMMA.getSeparator());
 
             String name = data[0];
@@ -55,7 +48,16 @@ public class ProductService {
         System.out.println("\n=" + title + "=");
         products.stream()
                 .filter(product -> Arrays.asList(categories).contains(product.getCategory()))
-                .forEach(System.out::println);
+                .forEach(product -> System.out.printf("- %s, %d원, %s, %s\n",
+                        product.getName(),
+                        product.getPrice(),
+                        (product.getQuantity() > 0 ? product.getQuantity() + "개" : "품절"),
+                        product.getDescription()));
+    }
+
+
+    public void updateProducts() {
+        ProductFileLoader.save(products);
     }
 
 }

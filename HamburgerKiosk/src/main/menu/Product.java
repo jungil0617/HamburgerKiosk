@@ -40,14 +40,13 @@ public class Product {
         this.quantity -= quantity;
     }
 
-    @Override
-    public String toString() {
-        return String.format("-%s, %d원, %s, %s",
+    public String toCSVFormat() {
+        return String.format("%s,%d,%s,\"%s\",%s",
                 name,
                 price,
-                (quantity > 0 ? quantity + "개" : "품절"),
-                description
-        );
+                (quantity > 0 ? quantity : "재고없음"),
+                description,
+                category.getCategory());
     }
 
 }
