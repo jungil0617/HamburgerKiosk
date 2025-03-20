@@ -6,10 +6,12 @@ import main.admin.Admin;
 import main.admin.AdminService;
 import main.io.Input;
 import main.io.InputMessage;
+import main.io.Output;
 import main.menu.ProductService;
 import main.order.OrderService;
 import main.order.Payment;
 
+import static main.io.InputMessage.*;
 import static main.kiosk.Option.getOption;
 
 public class Kiosk {
@@ -48,7 +50,7 @@ public class Kiosk {
     }
 
     private void startOrder(Admin admin, Customer customer) {
-        intro(admin, customer);
+        Output.displayIntro(admin, customer);
         productService.showProducts();
         orderService.orderMenu();
         payment.processPayment(orderService.getOrders(), admin, customer);
@@ -56,26 +58,21 @@ public class Kiosk {
         handleNextStep(admin, customer);
     }
 
-    private void intro(Admin admin, Customer customer) {
-        System.out.println("=================================");
-        System.out.println("안녕하세요. " + customer.getCustomerId() + "님 햄버거 가게 입니다.");
-        System.out.println("현재 접속된 관리자는 " + admin.getAdminName() + "입니다.");
-    }
-
-    private String outro() {
-        System.out.println("감사합니다. 구매하고 싶은 다른 상품이 있나요? (Y/N)");
+    private String extraOrder() {
+        System.out.println(EXTRA_ORDER.getMessage());
         return Input.nextLine();
     }
 
     private void handleNextStep(Admin admin, Customer customer) {
-        String choice = outro();
+        String choice = extraOrder();
 
-        if(choice.equals("Y")) {
-            startOrder(admin, customer);
-        } else {
-            adminService.logoutAdmin();
-            customerService.logoutCustomer();
-            start();
+        switch (choice) {
+            case "Y" -> startOrder(admin, customer);
+            case "N" -> {
+                adminService.logoutAdmin();
+                customerService.logoutCustomer();
+                start();
+            }
         }
     }
 

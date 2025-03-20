@@ -1,5 +1,7 @@
 package main.menu;
 
+import static main.io.InputErrorMessage.INVALID_OPTION;
+
 public enum Category {
 
     BURGER("햄버거"),
@@ -23,7 +25,7 @@ public enum Category {
                 return category;
             }
         }
-        throw new IllegalArgumentException("[ERROR] 잘못된 카테고리 값: " + input);
+        throw new IllegalArgumentException(INVALID_OPTION.getMessage());
     }
 
 }
