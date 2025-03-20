@@ -1,23 +1,28 @@
 package main.admin;
 
-public class Admin {
+import main.user.User;
 
-    private final String adminName;
+public class Admin implements User {
+
+    private final String adminId;
     private int money;
 
     public Admin(String name, int money) {
-        this.adminName = name;
+        this.adminId = name;
         this.money = money;
     }
 
-    public String getAdminName() {
-        return adminName;
+    @Override
+    public String getId() {
+        return adminId;
     }
 
+    @Override
     public int getMoney() {
         return money;
     }
 
+    @Override
     public void updateMoney(int money) {
         this.money += money;
     }

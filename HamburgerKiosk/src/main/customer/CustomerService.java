@@ -19,7 +19,7 @@ public class CustomerService {
 
         CustomerValidator.createValidator(customerInput, customers);
 
-        int id = Integer.parseInt(customerInput[0]);
+        String id = customerInput[0];
         int money = Integer.parseInt(customerInput[1].trim());
 
         Customer customer = new Customer(id, money);
@@ -28,10 +28,10 @@ public class CustomerService {
 
     public void loginCustomer() {
         System.out.println("로그인할 회원 번호를 입력해주세요.");
-        int id = Integer.parseInt(Input.nextLine());
+        String id = Input.nextLine();
 
         for(Customer customer : customers) {
-            if(customer.getCustomerId() == id) {
+            if(id.equals(customer.getId())) {
                 loggedInCustomer = customer;
                 return;
             }

@@ -1,23 +1,28 @@
 package main.customer;
 
-public class Customer {
+import main.user.User;
 
-    private final int customerId;
+public class Customer implements User {
+
+    private final String customerId;
     private int money;
 
-    public Customer(int customerId, int money) {
+    public Customer(String customerId, int money) {
         this.customerId = customerId;
         this.money = money;
     }
 
-    public int getCustomerId() {
+    @Override
+    public String getId() {
         return customerId;
     }
 
+    @Override
     public int getMoney() {
         return money;
     }
 
+    @Override
     public void updateMoney(int money) {
         this.money -= money;
     }

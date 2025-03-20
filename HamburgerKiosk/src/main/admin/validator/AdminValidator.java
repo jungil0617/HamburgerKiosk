@@ -35,7 +35,7 @@ public class AdminValidator {
     }
 
     public static void validateDuplicateAdmin(String[] adminData, List<Admin> admins) {
-        if (admins.stream().anyMatch(admin -> admin.getAdminName().equals(adminData[0]))) {
+        if (admins.stream().anyMatch(admin -> admin.getId().equals(adminData[0]))) {
             throw new IllegalArgumentException(DUPLICATE_ADMIN.getMessage());
         }
     }

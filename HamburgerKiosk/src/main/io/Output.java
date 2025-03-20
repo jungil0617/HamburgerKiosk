@@ -13,7 +13,7 @@ public class Output {
     public static void displayIntro(Admin admin, Customer customer) {
         System.out.printf(
                 (DISPLAY_INTRO.getMessage()),
-                customer.getCustomerId(), admin.getAdminName()
+                customer.getId(), admin.getId()
         );
     }
 
@@ -32,8 +32,8 @@ public class Output {
         System.out.printf("총구매액 %-5d %,d원%n", totalQuantity, totalAmount);
         System.out.println("=====================");
 
-        System.out.printf("판매자: %s, %,d원%n", admin.getAdminName(), admin.getMoney()); // 관리자 정보 필요
-        System.out.printf("구매자: %d, %,d원%n", customer.getCustomerId(), customer.getMoney());
+        System.out.printf("판매자: %s, %,d원%n", admin.getId(), admin.getMoney()); // 관리자 정보 필요
+        System.out.printf("구매자: %s, %,d원%n", customer.getId(), customer.getMoney());
     }
 
 }

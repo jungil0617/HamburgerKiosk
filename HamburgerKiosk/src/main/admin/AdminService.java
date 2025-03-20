@@ -31,7 +31,7 @@ public class AdminService {
         String name = Input.nextLine();
 
         for(Admin admin : admins) {
-            if(admin.getAdminName().equals(name)) {
+            if(admin.getId().equals(name)) {
                 loggedInAdmin = admin;
                 return;
             }
