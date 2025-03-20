@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static main.admin.validator.AdminErrorMessage.ADMIN_NOT_FOUND;
+import static main.io.InputMessage.*;
 import static main.util.Separator.COMMA;
 
 public class AdminService {
@@ -14,7 +15,7 @@ public class AdminService {
     private Admin loggedInAdmin;
 
     public void createAdmin() {
-        System.out.println("관리자 이름과 잔액을 입력해주세요.");
+        System.out.println(CREATE_ADMIN.getMessage());
         String[] adminInput = Input.nextLine().split(COMMA.getSeparator());
 
         AdminValidator.createValidator(adminInput, admins);
@@ -27,7 +28,7 @@ public class AdminService {
     }
 
     public void loginAdmin() {
-        System.out.println("로그인할 관리자 이름을 입력해주세요.");
+        System.out.println(LOGIN_ADMIN.getMessage());
         String name = Input.nextLine();
 
         for(Admin admin : admins) {

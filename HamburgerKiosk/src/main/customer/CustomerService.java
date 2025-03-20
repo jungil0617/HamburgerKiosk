@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static main.customer.validator.CustomerErrorMessage.CUSTOMER_NOT_FOUND;
+import static main.io.InputMessage.*;
 import static main.util.Separator.COMMA;
 
 public class CustomerService {
@@ -14,7 +15,7 @@ public class CustomerService {
     private Customer loggedInCustomer;
 
     public void createCustomer() {
-        System.out.println("회원 번호와 잔액을 입력해주세요.");
+        System.out.println(CREATE_CUSTOMER.getMessage());
         String[] customerInput = Input.nextLine().split(COMMA.getSeparator());
 
         CustomerValidator.createValidator(customerInput, customers);
@@ -27,7 +28,7 @@ public class CustomerService {
     }
 
     public void loginCustomer() {
-        System.out.println("로그인할 회원 번호를 입력해주세요.");
+        System.out.println(LOGIN_CUSTOMER.getMessage());
         String id = Input.nextLine();
 
         for(Customer customer : customers) {

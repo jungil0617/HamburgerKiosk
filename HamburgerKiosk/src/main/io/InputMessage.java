@@ -9,7 +9,10 @@ public enum InputMessage {
             3. 회원 생성
             4. 회원 접속"""),
     EXTRA_ORDER("감사합니다. 구매하고 싶은 다른 상품이 있나요? (Y/N)"),
-    ;
+    CREATE_ADMIN("관리자 이름과 잔액을 입력해주세요."),
+    LOGIN_ADMIN("로그인할 관리자 이름을 입력해주세요."),
+    CREATE_CUSTOMER(),
+    LOGIN_CUSTOMER();
 
     private final String message;
 
