@@ -38,7 +38,7 @@ public class ProductService {
     }
 
     public void showProducts() {
-        // Category 에서 BURGER, SET 묶어서 출력, 더 좋은 방법이 있을거 같다...
+        // Category 에서 BURGER, SET 묶어서 출력
         printCategory("햄버거", Category.BURGER, Category.SET);
         printCategory("사이드", Category.SIDE);
         printCategory("음료수", Category.DRINK);

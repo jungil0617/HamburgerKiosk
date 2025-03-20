@@ -52,9 +52,21 @@ public class OrderService {
 
             Product product = productService.getProductByName(productName);
 
+            setMenu(product, quantity);
+
             product.updateQuantity(quantity);
 
             orders.add(new Order(product, quantity));
+        }
+    }
+
+    private void setMenu(Product product, int quantity) {
+        if (product.isSetMenu()) {
+            Product fries = productService.getProductByName("감자튀김");
+            Product cola = productService.getProductByName("콜라");
+
+            if (fries != null) fries.updateQuantity(quantity);
+            if (cola != null) cola.updateQuantity(quantity);
         }
     }
 

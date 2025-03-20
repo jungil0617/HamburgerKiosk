@@ -40,6 +40,10 @@ public class Product {
         this.quantity -= quantity;
     }
 
+    public boolean isSetMenu() {
+        return this.category == Category.SET;
+    }
+
     public String toCSVFormat() {
         return String.format("%s,%d,%s,\"%s\",%s",
                 name,
