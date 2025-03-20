@@ -10,6 +10,8 @@ import main.menu.ProductService;
 import main.order.OrderService;
 import main.order.Payment;
 
+import static main.kiosk.Option.getOption;
+
 public class Kiosk {
 
     private final CustomerService customerService = new CustomerService();
@@ -34,15 +36,14 @@ public class Kiosk {
         startOrder(adminService.getLoggedInAdmin(), customerService.getLoggedInCustomer());
     }
 
-    private void processSelect(int option) {
-        // enum 대체 가능할거 같음
+    private void processSelect(int num) {
+        Option option = getOption(num);
         switch (option) {
-            case 0 -> exitKiosk();
-            case 1 -> adminService.createAdmin();
-            case 2 -> adminService.loginAdmin();
-            case 3 -> customerService.createCustomer();
-            case 4 -> customerService.loginCustomer();
-            default -> System.out.println("[ERROR] 올바른 메뉴 번호를 입력해주세요.");
+            case EXIT -> exitKiosk();
+            case ADMIN_CREATE -> createAdmin();
+            case ADMIN_LOGIN -> loginAdmin();
+            case CUSTOMER_CREATE -> getCustomer();
+            case CUSTOMER_LOGIN -> loginCustomer();
         }
     }
 
@@ -80,6 +81,22 @@ public class Kiosk {
 
     private void exitKiosk() {
         System.exit(0);
+    }
+
+    private void loginCustomer() {
+        customerService.loginCustomer();
+    }
+
+    private void getCustomer() {
+        customerService.createCustomer();
+    }
+
+    private void loginAdmin() {
+        adminService.loginAdmin();
+    }
+
+    private void createAdmin() {
+        adminService.createAdmin();
     }
 
  }

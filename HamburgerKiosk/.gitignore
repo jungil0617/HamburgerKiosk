@@ -33,4 +33,4 @@ bin/
 **/._.DS_Store
 
 ### file ###
-!/src/main/resources/products.md
+/src/main/resources/products.md
