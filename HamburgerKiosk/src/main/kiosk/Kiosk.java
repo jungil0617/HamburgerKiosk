@@ -55,16 +55,16 @@ public class Kiosk {
         orderService.orderMenu();
         payment.processPayment(orderService.getOrders(), admin, customer);
         productService.updateProducts();
-        handleNextStep(admin, customer);
+        extraOrder(admin, customer);
     }
 
-    private String extraOrder() {
+    private String isExtraOrder() {
         System.out.println(EXTRA_ORDER.getMessage());
         return Input.nextLine();
     }
 
-    private void handleNextStep(Admin admin, Customer customer) {
-        String choice = extraOrder();
+    private void extraOrder(Admin admin, Customer customer) {
+        String choice = isExtraOrder();
 
         switch (choice) {
             case "Y" -> startOrder(admin, customer);
@@ -73,6 +73,7 @@ public class Kiosk {
                 customerService.logoutCustomer();
                 start();
             }
+            default -> extraOrder(admin, customer);
         }
     }
 

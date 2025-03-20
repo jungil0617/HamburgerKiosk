@@ -44,7 +44,7 @@ public class Product {
         return this.category == Category.SET;
     }
 
-    public String toCSVFormat() {
+    public String toMDFormat() {
         return String.format("%s,%d,%s,\"%s\",%s",
                 name,
                 price,
