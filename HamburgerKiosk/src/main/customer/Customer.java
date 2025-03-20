@@ -6,6 +6,7 @@ public class Customer implements User {
 
     private final String customerId;
     private int money;
+    // 여기서 boolean 사용
 
     public Customer(String customerId, int money) {
         this.customerId = customerId;

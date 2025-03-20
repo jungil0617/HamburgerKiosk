@@ -55,7 +55,6 @@ public class ProductService {
                         product.getDescription()));
     }
 
-
     public void updateProducts() {
         ProductFileLoader.save(products);
     }

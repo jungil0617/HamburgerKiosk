@@ -21,7 +21,6 @@ public class ProductFileLoader {
             while ((product = br.readLine()) != null) {
                 products.add(product);
             }
-            br.close();
         } catch (IOException e) {
             throw new RuntimeException(FAILED_READ_FILE.getMessage());
         }
@@ -32,9 +31,8 @@ public class ProductFileLoader {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
             bw.write("name, price, quantity, description, category\n"); // 헤더 추가
             for (Product product : products) {
-                bw.write(product.toCSVFormat() + "\n");
+                bw.write(product.toMDFormat() + "\n");
             }
-            bw.close();
         } catch (IOException e) {
             throw new RuntimeException(FAILED_WRITE_FILE.getMessage());
         }

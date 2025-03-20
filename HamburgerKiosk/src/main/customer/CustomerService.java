@@ -17,6 +17,7 @@ public class CustomerService {
     public void createCustomer() {
         System.out.println(CREATE_CUSTOMER.getMessage());
         String[] customerInput = Input.nextLine().split(COMMA.getSeparator());
+        // 나누는 건 따로 Input 에서 나누는 게 좋을 것 같다.
 
         CustomerValidator.createValidator(customerInput, customers);
 
@@ -41,7 +42,7 @@ public class CustomerService {
     }
 
     public void logoutCustomer() {
-        loggedInCustomer = null;
+        loggedInCustomer = null; // true, false
     }
 
     public Customer getLoggedInCustomer() {
