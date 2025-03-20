@@ -9,7 +9,7 @@ import main.io.InputMessage;
 import main.io.Output;
 import main.menu.ProductService;
 import main.order.OrderService;
-import main.order.Payment;
+import main.payment.Payment;
 
 import static main.io.InputMessage.*;
 import static main.kiosk.Option.getOption;

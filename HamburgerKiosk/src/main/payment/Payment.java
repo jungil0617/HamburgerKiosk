@@ -1,8 +1,9 @@
-package main.order;
+package main.payment;
 
 import main.admin.Admin;
 import main.customer.Customer;
 import main.io.Output;
+import main.order.Order;
 
 import java.util.List;
 
